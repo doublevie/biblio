@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="libs/bootstrap-rtl/dist/css/bootstrap-rtl.css">
+    <link rel="stylesheet" href="libs/css/main.css">
     <style media="screen">
       body {padding-top: 50px;}
     </style>
