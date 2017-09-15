@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,9 +8,12 @@
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="libs/bootstrap-rtl/dist/css/bootstrap-rtl.css">
+    <style media="screen">
+      body {padding-top: 50px;}
+    </style>
   </head>
   <body>
-
+<?php include 'nav.php'; ?>
     <div class="well">
       <h1>مرحبا <i class="fa fa-cog"></i></h1>
     </div>
