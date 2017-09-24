@@ -15,7 +15,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">الرئيسية <span class="sr-only">(current)</span></a></li>
-        <!-- <li><a href="#">تسجيل دخول</a></li>
+        <li><a href="admin">الادارة</a></li>
+        <!--
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">اعدادات عامة <span class="caret"></span></a>
           <ul class="dropdown-menu">

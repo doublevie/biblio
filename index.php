@@ -84,8 +84,7 @@
   </body>
   <script type="text/javascript" src="libs/jquery/dist/jquery.js">  </script>
   <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js">  </script>
-  <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js">  </script>
-
+ 
 <script type="text/javascript">
   $(function(){
 
