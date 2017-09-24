@@ -10,14 +10,41 @@
     <link rel="stylesheet" href="libs/bootstrap-rtl/dist/css/bootstrap-rtl.css">
     <link rel="stylesheet" href="libs/css/main.css">
     <style media="screen">
-      body {padding-top: 50px;}
+      body {padding-top: 80px;background: url('assets/img/libraries.jpg');background-size: cover;}
+      table.frm {}
     </style>
   </head>
   <body>
-<?php include 'nav.php'; ?>
-    <div class="well">
-      <h1>مرحبا <i class="fa fa-cog"></i></h1>
-    </div>
+<?php include 'inc/nav1.php'; ?>
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-6 ">
+
+<div class="well">
+  <div class="signupform">
+
+<h1>التسجيل</h1>
+
+<table class="frm">
+
+</table>
+
+
+
+
+
+  </div>
+  </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
 
   </body>
   <script type="text/javascript" src="libs/jquery/dist/jquery.js">  </script>
