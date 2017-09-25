@@ -17,6 +17,8 @@
         <li class="active"><a href="#">الرئيسية <span class="sr-only">(current)</span></a></li>
         <li><a href="adherents.php">المنخرطين</a></li>
         <li><a href="adherents.php">الملمفات</a></li>
+        <li><a href="categories.php">الاقسام</a></li>
+
 
       </ul>
 
