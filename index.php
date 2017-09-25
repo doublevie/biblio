@@ -1,4 +1,18 @@
+<?php
+include 'inc/conf.php';
 
+$cats = "";
+$result = $conn->query("SELECT * FROM categories");
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $id = $row["ID"];
+      $name =  $row["NOM_CAT"];
+$cats .= "<option value='$id'>$name</option>";
+    }
+}
+
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -10,11 +24,11 @@
     <link rel="stylesheet" href="libs/bootstrap-rtl/dist/css/bootstrap-rtl.css">
     <link rel="stylesheet" href="libs/css/main.css">
     <style media="screen">
-      body {padding-top: 80px;background: url('assets/img/libraries.jpg');background-size: cover;}
+      body {background: url('assets/img/libraries.jpg');background-size: cover;}
       table.frm {width:100%}
       table.frm tr td {padding:5px}
       .hide {display: none}
-      .well-inverse{color:#fff;background: #000;background: rgba(0,0,0,0.8);border-color: #000}
+      .well-inverse{color:#fff;background: #000;background: rgba(0,0,0,0.8);border-color: #000;padding-top: 80px;height:100%;height:100vh;margin-bottom: 0;border-radius: 0}
     </style>
   </head>
   <body>
@@ -44,10 +58,9 @@
 <tr>
   <td> الصفة</td>
   <td>
-  <select class="form-control" name="">
-<option value="">TS</option>
-<option value="">TS2</option>
-  </select></td>
+  <!-- <select class="form-control" name="">
+<?php print $cats; ?>
+  </select></td> -->
 </tr>
 <tr>
   <td> المجال</td>
@@ -84,7 +97,7 @@
   </body>
   <script type="text/javascript" src="libs/jquery/dist/jquery.js">  </script>
   <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js">  </script>
- 
+
 <script type="text/javascript">
   $(function(){
 
