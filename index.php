@@ -49,36 +49,62 @@ $cats .= "<option value='$id'>$name</option>";
 
 <tr>
   <td>اسم المستخدم</td>
-  <td><input type="text" class="form-control" name="" value=""></td>
+  <td><input type="text" class="form-control" name="PSEUDO" dir="ltr" value="" required></td>
+</tr>
+
+<tr>
+  <td> كلمة السر</td>
+  <td><input type="text" class="form-control" name="PASSE" dir="ltr" value="" required></td>
 </tr>
 <tr>
-  <td>البريد الالكتروني</td>
-  <td><input type="text" class="form-control" name="" value=""></td>
-</tr>
-<tr>
-  <td> الصفة</td>
-  <td>
-  <!-- <select class="form-control" name="">
-<?php print $cats; ?>
-  </select></td> -->
-</tr>
-<tr>
-  <td> المجال</td>
-  <td><input type="text" class="form-control" name="" value=""></td>
+  <td>اعادة كلمة السر</td>
+  <td><input type="text" class="form-control" name="PASSE2" dir="ltr" value="" required></td>
 </tr>
 
 
 <tr>
-  <td colspan="2">
-<button type="submit" name="button" class="btn btn-primary btn-block"><i class="fa fa-spin fa-circle-o-notch hide"></i>    تسجيل  </button>
+  <td>الاسم </td>
+  <td><input type="text" class="form-control" name="NOM" value="" ></td>
+</tr>
+<tr>
+  <td>اللقب </td>
+  <td><input type="text" class="form-control" name="PRENOM" value="" ></td>
+</tr>
+<tr>
+  <td>تاريخ الميلاد </td>
+  <td><input type="text" class="form-control" name="DATE_NAISSANCE" value="" ></td>
+</tr>
+<tr>
+  <td>العنوان</td>
+  <td><input type="text" class="form-control" name="ADRESSE" value="" ></td>
+</tr>
+
+
+<tr>
+  <td> السنة الدراسية</td>
+  <td><input type="text" class="form-control" name="ANNE" value="" ></td>
+</tr>
+
+
+<tr>
+  <td >
+   </td>
+  <td >
+<button type="submit" name="button" class="btn btn-info btn-block"><i class="fa fa-spin fa-circle-o-notch hide"></i>    تسجيل  </button>
   </td>
 </tr>
+
+
+
 
 
 
 </table>
 </form>
 
+<div class="alert alert-danger response" role="alert" style="display:none">
+
+</div>
 
 
 
@@ -102,7 +128,31 @@ $cats .= "<option value='$id'>$name</option>";
   $(function(){
 
 $('form.signup').on('submit',function(e){
+  let that = $(this) ,
+  resultError = $('.response');
+$('.fa-spin').removeClass('hide');
 e.preventDefault();
+console.log(that.serialize());
+
+$.ajax({
+  type: "POST",
+  url: 'inc/inscription.php',
+  data: that.serialize(),
+  success: function(res){
+    $('.fa-spin').addClass('hide');
+    if (res.split(';')[0] !== '1') {
+  resultError.html(res.split(';')[2]);
+  $('[name="'+res.split(';')[1]+'"]').focus();
+  resultError.slideDown();
+} else {
+window.location.href = "done.php?action=new";
+
+}
+  },
+
+});
+
+
 });
 
   });

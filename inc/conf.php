@@ -1,5 +1,5 @@
 <?php
-$DB = ['localhost','root','admin','biblio'];
+$DB = ['localhost','root','','biblio'];
 
 $conn = new mysqli($DB[0], $DB[1], $DB[2],$DB[3]);
 
