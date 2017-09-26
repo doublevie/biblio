@@ -60,5 +60,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'new') {
   </body>
   <script type="text/javascript" src="libs/jquery/dist/jquery.js">  </script>
   <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js">  </script>
+<script type="text/javascript">
+function login() {
+let username = $('[name="USERNAME"]').val() ,
+userpass = $('[name="USERPASS"]').val();
 
+$.ajax({
+  type: "POST",
+  url: '_login.php',
+  data: 'user='+username+'&pass='+userpass,
+  success: function(res){
+    if (res == '1') {window.location.href ="./"}
+  },
+});
+}
+</script>
  </html>

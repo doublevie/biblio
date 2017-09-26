@@ -14,32 +14,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">الرئيسية <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="./">الرئيسية <span class="sr-only">(current)</span></a></li>
         <li><a href="admin">الادارة</a></li>
-        <!--
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">اعدادات عامة <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li> -->
+
+
       </ul>
+<?php if (!isset($_COOKIE['USERID'])) { ?>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="اسم المستخدم">
+          <input type="text" name="USERNAME" class="form-control" placeholder="اسم المستخدم">
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" placeholder=" كلمة المرور">
+          <input type="password" name="USERPASS" class="form-control" placeholder=" كلمة المرور">
         </div>
-        <button type="submit" class="btn btn-primary">تسجيل الدخول</button>
+        <a type="submit" class="btn btn-primary" onclick="login()">تسجيل الدخول</a>
       </form>
-
+<?php } ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

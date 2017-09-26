@@ -30,11 +30,12 @@ die();
 $PASSE = md5($PASSE);
 
 
-$add = "INSERT INTO lecteurs (PSEUDO,NOM,PRENOM,DATE_NAISSANCE,ADRESSE,ANNE,PASSE,VALIDE) VALUES ('$PSEUDO','$NOM','$PRENOM','$DATE_NAISSANCE','$ADRESSE','$ANNE','$PASSE','0')";
+$add = "INSERT INTO lecteurs (PSEUDO,NOM,PRENOM,DATE_NAISSANCE,ADRESSE,ANNE,PASSE,TYPE,VALIDE) VALUES ('$PSEUDO','$NOM','$PRENOM','$DATE_NAISSANCE','$ADRESSE','$ANNE','$PASSE','','0')";
 if ($conn->query($add)){
   print '1;تمت العملية بنجاح';
 } else {
   print '0;خطأ في الاتصال بقاعدة البيانات';
+  die(mysqli_error($conn));
 }
 
 
