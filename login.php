@@ -152,6 +152,7 @@ $.ajax({
   url: '_login.php',
   data: 'user='+username+'&pass='+userpass,
   success: function(res){
+    console.log(res);
 if (res == '1') {window.location.href ="./"}
   },
 });

@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="./">الرئيسية <span class="sr-only">(current)</span></a></li>
         <li><a href="#">docs</a></li>
-        <li><a href="#">logout</a></li>
+        <li><a href="./?action=logout">logout</a></li>
 
 
       </ul>

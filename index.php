@@ -1,5 +1,19 @@
 <?php
 error_reporting(E_ALL);
+
+if (isset($_GET['action'])) {
+  if ($_GET['action'] == 'logout') {
+     unset($_COOKIE['USERID']);
+     setcookie('USERID', null, -1, '/');
+     unset($_COOKIE['USERNAME']);
+     setcookie('USERNAME', null, -1, '/');
+  }
+}
+
+
+
+
+
 if(!isset($_COOKIE['USERID']) ||  !isset($_COOKIE['USERNAME'])) {
 include 'login.php';
 die();
@@ -14,7 +28,7 @@ include 'inc/conf.php';
         include 'done.php';
         die();
       } else {
-        print 'abc';
+      //  print 'abc';
       }
       }
   }

@@ -13,7 +13,7 @@ if ($result->num_rows > 0) {
 print '1';die();
     }
 } else {
-  include 'home.php';
+  // include 'home.php';
 }
 
 
