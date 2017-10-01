@@ -15,14 +15,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="./">الرئيسية <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">docs</a></li>
-        <li><a href="./?action=logout">logout</a></li>
+        <li><a href="#">الحجوزات</a></li>
+        <li><a href="./?action=logout">تسجيل الخروج</a></li>
 
 
       </ul>
-       <form class="navbar-form navbar-left">
+       <form class="navbar-form navbar-left" method="get" action="./search.php">
         <div class="form-group">
-          <input type="text" name="USERNAME" class="form-control" placeholder="بحث">
+          <input type="text" name="q" class="form-control" placeholder="بحث">
         </div>
 
         <button type="submit" class="btn btn-primary" > <i class="fa fa-search"></i></button>

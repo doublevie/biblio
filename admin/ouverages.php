@@ -18,13 +18,25 @@ if (isset($_POST['TITRE'])) {
 
 
 
+$cats = "";
+$categ = array();
+$result = $conn->query("SELECT * FROM categories");
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $id = $row["ID"];
+      $name =  $row["NOM_CAT"];
+$cats .= "<option value='$id'>$name</option>";
+$categ[$id] = $name;
+    }
+}
 
 
 $list = '';
 $result = $conn->query("SELECT * FROM ouverages ORDER BY ID DESC");
  if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
- $list .= '<tr><td>'.$row["ID"].'</td><td>'.$row["TITRE"].'</td><td>'.$row["AUTEUR"].'</td><td>'.$row["QT"].'</td><td>'.$row["QT_DISPONIBLE"].'</td>';
+ $list .= '<tr><td>'.$row["ID"].'</td><td>'.$row["TITRE"].'</td><td>'.$row["AUTEUR"].'</td><td>'.$categ[$row["CAT"]].'</td><td>'.$row["QT"].'</td><td>'.$row["QT_DISPONIBLE"].'</td>';
 }
 }
 
@@ -78,8 +90,7 @@ include '../inc/navadmin.php';
 <tr>
   <td>القسم</td>
   <td><select class="form-control" name="CAT">
-<option value="">CAT1</option>
-<option value="">CAT2</option>
+<?php print $cats; ?>
   </select></td>
 </tr>
 <tr>
@@ -116,6 +127,7 @@ include '../inc/navadmin.php';
     <th>الرقم</th>
     <th>العنوان</th>
     <th>المؤلف</th>
+    <th>القسم</th>
     <th>الكمية</th>
     <th>متوفرة</th>
   </tr>

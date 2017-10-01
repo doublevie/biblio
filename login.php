@@ -39,11 +39,11 @@
 
 <tr>
   <td> كلمة السر</td>
-  <td><input type="text" class="form-control" name="PASSE" dir="ltr" value="" required></td>
+  <td><input type="password" class="form-control" name="PASSE" dir="ltr" value="" required></td>
 </tr>
 <tr>
   <td>اعادة كلمة السر</td>
-  <td><input type="text" class="form-control" name="PASSE2" dir="ltr" value="" required></td>
+  <td><input type="password" class="form-control" name="PASSE2" dir="ltr" value="" required></td>
 </tr>
 
 
@@ -57,7 +57,7 @@
 </tr>
 <tr>
   <td>تاريخ الميلاد </td>
-  <td><input type="text" class="form-control" name="DATE_NAISSANCE" value="" ></td>
+  <td><input type="date" class="form-control" name="DATE_NAISSANCE" value="" ></td>
 </tr>
 <tr>
   <td>العنوان</td>

@@ -10,15 +10,54 @@
     <link rel="stylesheet" href="libs/css/main.css">
     <style media="screen">
 
-
+body {padding-top: 70px}
+h2 {padding-top: 5px;margin-top:0}
+.panel-body {height:100px;overflow-y: hidden;}
      </style>
   </head>
   <body>
 <?php include 'inc/nav.php'; ?>
 
 
-<div class="container">
-<h1>welcom</h1>
+<div class="container-fluid" >
+<div class="row">
+<div class="col-md-4">
+  <div class="list-group">
+  <a href="#" class="list-group-item ">
+    categories
+  </a>
+  <a href="#" class="list-group-item">categories</a>
+  <a href="#" class="list-group-item">categories</a>
+  <a href="#" class="list-group-item">categories</a>
+  <a href="#" class="list-group-item">categories</a>
+</div>
+</div>
+
+<div class="col-md-8">
+
+<div class="row" id="res">
+
+<div class="col-sm-4">
+  <div class="panel panel-default">
+  <div class="panel-body">
+    <h2>titre</h2>
+    <p>auteur</p>
+  </div>
+  <div class="panel-footer">
+    categorie
+    <a class="btn btn-primary pull-left btn-xs"><i class="fa fa-plus"></i> إضافة</a></div>
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+</div>
+
 </div>
 
 

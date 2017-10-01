@@ -16,7 +16,6 @@ include '../inc/conf.php';
 
 
 if (isset($_POST['addcat'])) {
-
   $cat = $_POST['addcat'];
   $add = "INSERT INTO categories (NOM_CAT) VALUES ('$cat')";
 $conn->query($add);
@@ -35,6 +34,7 @@ if ($result->num_rows > 0) {
       $id = $row["ID"];
       $name =  $row["NOM_CAT"];
 $cats .= "<tr><td>$id</td><td>$name</td></tr>";
+
     }
 }
 
