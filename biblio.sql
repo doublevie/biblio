@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mar 26 Septembre 2017 à 17:35
--- Version du serveur :  10.1.21-MariaDB
--- Version de PHP :  5.6.30
+-- Host: localhost
+-- Generation Time: Oct 01, 2017 at 10:30 PM
+-- Server version: 5.7.19-0ubuntu0.16.04.1
+-- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `biblio`
+-- Database: `biblio`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE `categories` (
@@ -32,7 +34,7 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`ID`, `NOM_CAT`) VALUES
@@ -42,7 +44,7 @@ INSERT INTO `categories` (`ID`, `NOM_CAT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `lecteurs`
+-- Table structure for table `lecteurs`
 --
 
 CREATE TABLE `lecteurs` (
@@ -59,42 +61,82 @@ CREATE TABLE `lecteurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Contenu de la table `lecteurs`
+-- Dumping data for table `lecteurs`
 --
 
 INSERT INTO `lecteurs` (`ID`, `PSEUDO`, `NOM`, `PRENOM`, `DATE_NAISSANCE`, `ADRESSE`, `ANNE`, `PASSE`, `TYPE`, `VALIDE`) VALUES
-(3, 'doublevie', 'ÙØ§Ø±Ø³ ', 'Ø¹Ø¨Ø§Ø¯Ùˆ', '22/07/1985', 'Ø³Ø·ÙŠÙ', '19265', 'd29906dd241d0d09a64eef8eaed9520f', '', '0');
+(6, 'doublevie', 'fares', 'abadou', '1925', 'setif', '19554', 'd29906dd241d0d09a64eef8eaed9520f', '', '1');
+
+-- --------------------------------------------------------
 
 --
--- Index pour les tables exportées
+-- Table structure for table `ouverages`
+--
+
+CREATE TABLE `ouverages` (
+  `ID` int(11) NOT NULL,
+  `TITRE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `CAT` varchar(255) COLLATE utf8_bin NOT NULL,
+  `TYPE` varchar(255) COLLATE utf8_bin NOT NULL,
+  `AUTEUR` varchar(255) COLLATE utf8_bin NOT NULL,
+  `DATE_SORTIE` datetime NOT NULL,
+  `QT` varchar(11) COLLATE utf8_bin NOT NULL,
+  `QT_DISPONIBLE` varchar(11) COLLATE utf8_bin NOT NULL,
+  `PAGES` varchar(11) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `ouverages`
+--
+
+INSERT INTO `ouverages` (`ID`, `TITRE`, `CAT`, `TYPE`, `AUTEUR`, `DATE_SORTIE`, `QT`, `QT_DISPONIBLE`, `PAGES`) VALUES
+(3, 'tt1', '', '', 'fares1', '2017-10-01 21:27:26', '54', '54', '11');
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `categories`
+-- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Index pour la table `lecteurs`
+-- Indexes for table `lecteurs`
 --
 ALTER TABLE `lecteurs`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- Indexes for table `ouverages`
+--
+ALTER TABLE `ouverages`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `categories`
+-- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
--- AUTO_INCREMENT pour la table `lecteurs`
+-- AUTO_INCREMENT for table `lecteurs`
 --
 ALTER TABLE `lecteurs`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `ouverages`
+--
+ALTER TABLE `ouverages`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
