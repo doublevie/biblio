@@ -1,4 +1,51 @@
+<?php
 
+
+include 'inc/conf.php';
+
+
+
+
+
+$categ = array();
+$cats = '';
+$table = '';
+$condition = '';
+
+if (isset($_GET['cat']) && $_GET['cat'] > 0) {
+  $condition = " WHERE CAT='".$_GET['cat']."'";
+}
+
+
+
+$result = $conn->query("SELECT * FROM categories");
+ if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+$categ[$row["ID"]] =  $row["NOM_CAT"];
+$cats .='  <a href="?cat='.$row["ID"].'" class="list-group-item">'.$row["NOM_CAT"].'</a>';
+}
+}
+
+
+$result = $conn->query("SELECT * FROM ouverages $condition LIMIT 100");
+ if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+
+  $table .= '<div class="col-sm-4"><div class="panel panel-default"><div class="panel-body"><h2>'.$row["TITRE"].'</h2>';
+  $table .= '<p>'.$row["AUTEUR"].'</p></div><div class="panel-footer"> '.$categ[$row["CAT"]].'<a class="btn btn-primary pull-left btn-xs"><i class="fa fa-plus"></i> إضافة</a></div></div></div>';
+}
+}
+
+
+
+
+
+
+
+
+
+
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,13 +70,16 @@ h2 {padding-top: 5px;margin-top:0}
 <div class="row">
 <div class="col-md-4">
   <div class="list-group">
-  <a href="#" class="list-group-item ">
+  <!-- <a href="#" class="list-group-item ">
     categories
   </a>
   <a href="#" class="list-group-item">categories</a>
   <a href="#" class="list-group-item">categories</a>
-  <a href="#" class="list-group-item">categories</a>
-  <a href="#" class="list-group-item">categories</a>
+  <a href="#" class="list-group-item">categories</a>-->
+  <a href="?cat=0" class="list-group-item">كل الأقسام</a>
+  <?php
+print $cats;
+   ?>
 </div>
 </div>
 
@@ -37,7 +87,7 @@ h2 {padding-top: 5px;margin-top:0}
 
 <div class="row" id="res">
 
-<div class="col-sm-4">
+<!-- <div class="col-sm-4">
   <div class="panel panel-default">
   <div class="panel-body">
     <h2>titre</h2>
@@ -47,8 +97,12 @@ h2 {padding-top: 5px;margin-top:0}
     categorie
     <a class="btn btn-primary pull-left btn-xs"><i class="fa fa-plus"></i> إضافة</a></div>
 </div>
-</div>
+</div> -->
 
+
+<?php
+print $table;
+ ?>
 
 </div>
 
