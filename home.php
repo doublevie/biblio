@@ -11,9 +11,11 @@ $categ = array();
 $cats = '';
 $table = '';
 $condition = '';
+$currentCat = 0;
 
 if (isset($_GET['cat']) && $_GET['cat'] > 0) {
   $condition = " WHERE CAT='".$_GET['cat']."'";
+  $currentCat = $_GET['cat'];
 }
 
 
@@ -22,7 +24,8 @@ $result = $conn->query("SELECT * FROM categories");
  if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 $categ[$row["ID"]] =  $row["NOM_CAT"];
-$cats .='  <a href="?cat='.$row["ID"].'" class="list-group-item">'.$row["NOM_CAT"].'</a>';
+  $active = ($currentCat == $row["ID"] ? 'active':'');
+$cats .='  <a href="?cat='.$row["ID"].'" class="list-group-item '.$active.'">'.$row["NOM_CAT"].'</a>';
 }
 }
 
@@ -30,9 +33,8 @@ $cats .='  <a href="?cat='.$row["ID"].'" class="list-group-item">'.$row["NOM_CAT
 $result = $conn->query("SELECT * FROM ouverages $condition LIMIT 100");
  if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-
   $table .= '<div class="col-sm-4"><div class="panel panel-default"><div class="panel-body"><h2>'.$row["TITRE"].'</h2>';
-  $table .= '<p>'.$row["AUTEUR"].'</p></div><div class="panel-footer"> '.$categ[$row["CAT"]].'<a class="btn btn-primary pull-left btn-xs"><i class="fa fa-plus"></i> إضافة</a></div></div></div>';
+  $table .= '<a href="search.php?q='.$row["AUTEUR"].'">'.$row["AUTEUR"].'</a></div><div class="panel-footer"> '.$categ[$row["CAT"]].'<a class="btn btn-primary pull-left btn-xs" onclick="reserver('.$row["ID"].')"><i class="fa fa-plus"></i> إضافة</a></div></div></div>';
 }
 }
 
@@ -76,7 +78,7 @@ h2 {padding-top: 5px;margin-top:0}
   <a href="#" class="list-group-item">categories</a>
   <a href="#" class="list-group-item">categories</a>
   <a href="#" class="list-group-item">categories</a>-->
-  <a href="?cat=0" class="list-group-item">كل الأقسام</a>
+  <a href="?cat=0" class="list-group-item ">كل الأقسام</a>
   <?php
 print $cats;
    ?>
@@ -117,11 +119,15 @@ print $table;
 
 
 
+<?php
+include 'inc/dialog.php';
 
+ ?>
 
   </body>
   <script type="text/javascript" src="libs/jquery/dist/jquery.js">  </script>
   <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.js">  </script>
+  <script type="text/javascript" src="app/main.js">  </script>
 
 
 
