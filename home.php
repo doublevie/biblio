@@ -78,7 +78,7 @@ h2 {padding-top: 5px;margin-top:0}
   <a href="#" class="list-group-item">categories</a>
   <a href="#" class="list-group-item">categories</a>
   <a href="#" class="list-group-item">categories</a>-->
-  <a href="?cat=0" class="list-group-item ">كل الأقسام</a>
+  <a href="?cat=0" class="list-group-item ">كل الإختصاصات</a>
   <?php
 print $cats;
    ?>

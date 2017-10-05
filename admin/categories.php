@@ -68,7 +68,7 @@ include '../inc/navadmin.php';
 <div class="container">
 <div class="well">
 
-  <h3>اضافة  قسم</h3>
+  <h3>اضافة  اختصاص</h3>
 <form class="" action="categories.php" method="post">
 
 <div class="row">
@@ -85,7 +85,7 @@ include '../inc/navadmin.php';
 
 
 <hr>
-  <h3>الاقسام</h3>
+  <h3>قائمة الاختصاصات</h3>
   <table class="table table-bordered table-striped">
 <!-- <tr>
   <td>id</td>

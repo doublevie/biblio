@@ -6,12 +6,11 @@
         <h4 class="modal-title">حجز ملف</h4>
       </div>
       <div class="modal-body">
-        تحميل
-        <i class="fa fa-spin fa-spinner"></i>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">إغلاق</button>
-        <button type="button" class="btn btn-primary">حجز</button>
+        <!-- <button type="button" class="btn btn-primary">حجز</button> -->
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

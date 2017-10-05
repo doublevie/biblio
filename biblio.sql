@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 01, 2017 at 10:30 PM
+-- Generation Time: Oct 05, 2017 at 10:25 PM
 -- Server version: 5.7.19-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -65,7 +65,7 @@ CREATE TABLE `lecteurs` (
 --
 
 INSERT INTO `lecteurs` (`ID`, `PSEUDO`, `NOM`, `PRENOM`, `DATE_NAISSANCE`, `ADRESSE`, `ANNE`, `PASSE`, `TYPE`, `VALIDE`) VALUES
-(6, 'doublevie', 'fares', 'abadou', '1925', 'setif', '19554', 'd29906dd241d0d09a64eef8eaed9520f', '', '1');
+(7, 'doublevie', 'ÙØ§Ø±Ø³', 'Ø¹Ø¨Ø§Ø¯Ùˆ', '1985-07-25', 'Ø³Ø·ÙŠÙ', '2017', 'd29906dd241d0d09a64eef8eaed9520f', '', '1');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,31 @@ CREATE TABLE `ouverages` (
 --
 
 INSERT INTO `ouverages` (`ID`, `TITRE`, `CAT`, `TYPE`, `AUTEUR`, `DATE_SORTIE`, `QT`, `QT_DISPONIBLE`, `PAGES`) VALUES
-(3, 'tt1', '', '', 'fares1', '2017-10-01 21:27:26', '54', '54', '11');
+(5, 'Ø¹Ù†ÙˆØ§Ù† Ø·ÙˆÙŠÙ„', '8', '', 'Ø¹Ø¨Ø§Ø¯Ùˆ ÙØ§Ø±Ø³', '2017-10-02 23:31:08', '0', '0', '10'),
+(6, 'Ø¹Ù†ÙˆØ§Ù† Ø¢Ø®Ø±', '7', '', 'ÙØ§Ø±Ø³ Ø¹Ø¨Ø§Ø¯Ùˆ', '2017-10-02 23:37:01', '12', '12', '20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `ID` int(11) NOT NULL,
+  `LECTID` int(11) NOT NULL,
+  `OUVID` int(11) NOT NULL,
+  `DATE_RES` datetime NOT NULL,
+  `DATE_DELAI` datetime NOT NULL,
+  `DATE_RECUP` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservation`
+--
+
+INSERT INTO `reservation` (`ID`, `LECTID`, `OUVID`, `DATE_RES`, `DATE_DELAI`, `DATE_RECUP`) VALUES
+(4, 7, 5, '2017-10-05 21:24:19', '2017-10-20 00:00:00', ''),
+(5, 7, 6, '2017-10-05 21:24:23', '2017-10-20 00:00:00', '');
 
 --
 -- Indexes for dumped tables
@@ -115,6 +139,12 @@ ALTER TABLE `ouverages`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -128,13 +158,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `lecteurs`
 --
 ALTER TABLE `lecteurs`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `ouverages`
 --
 ALTER TABLE `ouverages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
