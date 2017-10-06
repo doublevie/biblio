@@ -8,6 +8,19 @@ if (isset($_GET['action'])) {
 
 
 include '_check.php';
+include '../inc/conf.php';
+
+
+/*-----------COUNNT --------------*/
+$result = $conn->query("SELECT (SELECT COUNT(ID)FROM lecteurs)  AS QL ,(SELECT COUNT(ID)FROM ouverages)  AS QO");
+    while($row = $result->fetch_assoc()) {
+      $QL = $row["QL"];
+      $QO = $row["QO"];
+
+
+}
+
+
 
  ?>
 
@@ -33,7 +46,36 @@ include '_check.php';
 include '../inc/navadmin.php';
  ?>
 
+<div class="container-fluid">
+  <div class="row">
 
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">adhur</h3>
+    </div>
+    <div class="panel-body">
+      <h1 align="center"><?php print $QL; ?></h1>
+    </div>
+  </div>
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">ouverages</h3>
+    </div>
+    <div class="panel-body">
+      <h1 align="center"><?php print $QO; ?></h1>
+
+    </div>
+  </div>
+
+
+</div>
+
+
+</div>
+</div>
 
 
 
