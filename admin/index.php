@@ -12,10 +12,11 @@ include '../inc/conf.php';
 
 
 /*-----------COUNNT --------------*/
-$result = $conn->query("SELECT (SELECT COUNT(ID)FROM lecteurs)  AS QL ,(SELECT COUNT(ID)FROM ouverages)  AS QO");
+$result = $conn->query("SELECT (SELECT COUNT(ID)FROM lecteurs)  AS QL ,(SELECT COUNT(ID)FROM ouverages)  AS QO,(SELECT COUNT(ID) FROM reservation)  AS QRR  ");
     while($row = $result->fetch_assoc()) {
       $QL = $row["QL"];
       $QO = $row["QO"];
+      $QRR = $row["QRR"];
 
 
 }
@@ -52,7 +53,7 @@ include '../inc/navadmin.php';
 <div class="col-md-4">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">adhur</h3>
+      <h3 class="panel-title">القراء</h3>
     </div>
     <div class="panel-body">
       <h1 align="center"><?php print $QL; ?></h1>
@@ -62,10 +63,20 @@ include '../inc/navadmin.php';
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">ouverages</h3>
+      <h3 class="panel-title">الكتب</h3>
     </div>
     <div class="panel-body">
       <h1 align="center"><?php print $QO; ?></h1>
+
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">عدد الحجوزات</h3>
+    </div>
+    <div class="panel-body">
+      <h1 align="center"><?php print $QRR; ?></h1>
 
     </div>
   </div>
