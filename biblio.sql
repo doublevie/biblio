@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 05, 2017 at 10:25 PM
+-- Generation Time: Oct 09, 2017 at 02:31 AM
 -- Server version: 5.7.19-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -90,8 +90,7 @@ CREATE TABLE `ouverages` (
 --
 
 INSERT INTO `ouverages` (`ID`, `TITRE`, `CAT`, `TYPE`, `AUTEUR`, `DATE_SORTIE`, `QT`, `QT_DISPONIBLE`, `PAGES`) VALUES
-(5, 'Ø¹Ù†ÙˆØ§Ù† Ø·ÙˆÙŠÙ„', '8', '', 'Ø¹Ø¨Ø§Ø¯Ùˆ ÙØ§Ø±Ø³', '2017-10-02 23:31:08', '0', '0', '10'),
-(6, 'Ø¹Ù†ÙˆØ§Ù† Ø¢Ø®Ø±', '7', '', 'ÙØ§Ø±Ø³ Ø¹Ø¨Ø§Ø¯Ùˆ', '2017-10-02 23:37:01', '12', '12', '20');
+(7, 'Ø¹Ù†ÙˆØ§Ù† Ø±Ù‚Ù… 1', '8', '', 'ÙØ§Ø±Ø³ Ø¹Ø¨Ø§Ø¯Ùˆ', '2017-10-07 02:23:20', '1', '30', '10');
 
 -- --------------------------------------------------------
 
@@ -105,16 +104,16 @@ CREATE TABLE `reservation` (
   `OUVID` int(11) NOT NULL,
   `DATE_RES` datetime NOT NULL,
   `DATE_DELAI` datetime NOT NULL,
-  `DATE_RECUP` varchar(11) NOT NULL
+  `DATE_RECUP` varchar(11) NOT NULL,
+  `TOK` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`ID`, `LECTID`, `OUVID`, `DATE_RES`, `DATE_DELAI`, `DATE_RECUP`) VALUES
-(4, 7, 5, '2017-10-05 21:24:19', '2017-10-20 00:00:00', ''),
-(5, 7, 6, '2017-10-05 21:24:23', '2017-10-20 00:00:00', '');
+INSERT INTO `reservation` (`ID`, `LECTID`, `OUVID`, `DATE_RES`, `DATE_DELAI`, `DATE_RECUP`, `TOK`) VALUES
+(3, 7, 7, '2017-10-09 01:09:50', '2017-10-24 00:00:00', '', '1');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +163,13 @@ ALTER TABLE `lecteurs`
 -- AUTO_INCREMENT for table `ouverages`
 --
 ALTER TABLE `ouverages`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
