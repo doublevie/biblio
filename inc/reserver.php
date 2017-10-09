@@ -36,7 +36,7 @@ $result = $conn->query("SELECT * FROM ouverages WHERE ID =$ouvID  ");
 
 $Qtdisp--;
 
-$addQuery ="INSERT INTO reservation (LECTID,OUVID,DATE_RES,DATE_DELAI,DATE_RECUP)VALUES ('$lectID','$ouvID',NOW(),DATE_ADD(CURDATE(), INTERVAL 15 DAY),'' )";
+$addQuery ="INSERT INTO reservation (LECTID,OUVID,DATE_RES,DATE_DELAI,DATE_RECUP,TOK)VALUES ('$lectID','$ouvID',NOW(),DATE_ADD(CURDATE(), INTERVAL 15 DAY),'','0' )";
 $update =" UPDATE ouverages SET QT_DISPONIBLE = $Qtdisp WHERE ID =$ouvID ";
 
 
