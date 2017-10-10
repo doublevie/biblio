@@ -13,10 +13,10 @@ include '../inc/conf.php';
 
 
 if (isset($_GET['ret']) && $_GET['ret'] > 0) {
-  $today = date('Y-m-d H:i');
+  $today = date('Y-m-d H:i:s');
   $ret = $_GET['ret'];
   $sql = "UPDATE reservation SET DATE_RECUP='$today' WHERE ID='$ret'";
-  $conn->query($sql);
+  $conn->query($sql) or die(mysqli_error($conn));
   $sql = "UPDATE  ouverages SET QT_DISPONIBLE=QT_DISPONIBLE+1 WHERE ID='$bid'";
   $conn->query($sql);
 }
@@ -66,15 +66,26 @@ $lecteurs[$row["ID"]] = $row["NOM"];
 $querys = '';
 $result = $conn->query("SELECT * FROM reservation WHERE TOK='0' ");
     while($row = $result->fetch_assoc()) {
- $querys .= '<tr><td>'.$lecteurs[$row["LECTID"]].'</td><td>'.$ouvs[$row["OUVID"]].'</td><td>'.$row["DATE_RES"].'</td><td><a href="?add='.$row["ID"].'">تأكيد </a></td><td><a href="?reject='.$row["ID"].'&bid='.$row["OUVID"].'">رفض </a></td></tr>';
+ $querys .= '<tr><td>'.$lecteurs[$row["LECTID"]].'</td><td>'.$ouvs[$row["OUVID"]].'</td><td>'.$row["DATE_RES"].'</td><td><a href="?add='.$row["ID"].'">تأكيد </a></td><td><a href="?reject='.$row["ID"].'&bid='.$row["OUVID"].'"> رفض </a></td></tr>';
 }
 
 
 /*-----------RESERVATIONS --------------*/
+$fatoday = date('Ymd');
 $resv = '';
-$result = $conn->query("SELECT * FROM reservation WHERE TOK='1' AND DATE_RECUP='' ");
+$result = $conn->query("SELECT * FROM reservation ORDER BY ID DESC");
     while($row = $result->fetch_assoc()) {
- $resv .= '<tr><td>'.$lecteurs[$row["LECTID"]].'</td><td>'.$ouvs[$row["OUVID"]].'</td><td>'.$row["DATE_RES"].'</td><td><a href="?ret='.$row["ID"].'&bid='.$row["OUVID"].'">إسترجاع</a></tr>';
+$end = fulltofa($row['DATE_DELAI']);
+$colorAttr = ($fatoday >= $end &&  $row['DATE_RECUP'] == '' ?' class="danger"':'');
+       $back = ($row['DATE_RECUP'] !==''? '<i class="fa fa-check"></i>':'<a href="?ret='.$row["ID"].'&bid='.$row["OUVID"].'">إسترجاع</a>');
+ $resv .= '<tr '.$colorAttr.'><td>'.$lecteurs[$row["LECTID"]].'</td><td>'.$ouvs[$row["OUVID"]].'</td><td>'.$row["DATE_RES"].'</td><td>'.$back.'</tr>';
+}
+
+
+function fulltofa($x){
+  $z = explode(' ',$x);
+  $z = explode('-',$z[0]);
+  return $z[0].$z[1].$z[2];
 }
 
  ?>
@@ -134,7 +145,6 @@ include '../inc/navadmin.php';
     </div>
     <div class="panel-body">
       <h3 align="center"><?php print $QRR; ?></h3>
-
     </div>
   </div>
 
